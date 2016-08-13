@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:h="http://xmlns.jcp.org/jsf/html"
+	  xmlns:p="http://primefaces.org/ui"	  
+	  xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Registration Page</title>
+</h:head>
+<h:body>
+			<a style="color: #FF0000" href="#{request.contextPath}/login.xhtml">Login Screen</a><br/><br/>
+		<div align="center">
+		<h:form>
+			<p:panel style="vertical-align:middle;height:80px;">
+				<h1 align="center">Registration Page</h1>
+			</p:panel>
+			<p:panel>
+            <table>
+                <tr>
+                    <td><p:outputLabel value="Username "/><h:outputLabel value="(*)" style="color:#F00707;" /></td>
+                    <td >
+                        <h:inputText value="#{userController.model.login}" required="true" label="Login"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td><p:outputLabel value="Password "/><h:outputLabel value="(*)" style="color:#F00707;" /></td>
+                    <td>
+                        <h:inputSecret value="#{userController.model.pwd}" label="Password" redisplay="true" required="true">
+                            <f:validateLength maximum="100" />
+                        </h:inputSecret>
+                    </td>
+                    <td><p:outputLabel value="Confirm Password "/><h:outputLabel value="(*)" style="color:#F00707;" /></td>
+                    <td>
+                        <h:inputSecret value="#{userController.model.pwdConfirm}" redisplay="true" label="ConfPassword" required="true">
+                            <f:validateLength maximum="100" />
+                        </h:inputSecret>
+                    </td>
+                </tr>	
+            </table><br/>
+            <p:commandButton value="Validate" action="#{userController.register}" ajax="false"/><p:outputLabel value="&#160;&#160;&#160;&#160;&#160;"/>
+            <p:commandButton type="reset" value="Reset"/>
+            <table>
+                <tr>
+                    <td><h:messages id="messages" /></td>
+                </tr>
+            </table>
+            </p:panel>
+    </h:form>	
+    </div>
+</h:body>
+</html>

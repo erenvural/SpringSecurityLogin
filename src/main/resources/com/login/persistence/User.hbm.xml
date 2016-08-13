@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.login.persistence.User" table="User">
+        <id name="userId" type="int">
+            <column name="UserId" />
+            <generator class="identity" />
+        </id>
+        <property name="userName" type="string">
+            <column name="UserName" length="45" not-null="true">
+            </column>
+        </property>
+        <property name="password" type="string">
+            <column name="Password" length="45" not-null="true">
+            </column>
+        </property>
+        <property name="enabled" type="java.lang.Integer">
+            <column name="Enabled">
+            </column>
+        </property>
+        <set name="roles">
+            <key>
+                <column name="UserId" not-null="true">
+                    <comment></comment>
+                </column>
+            </key>
+            <one-to-many class="com.login.persistence.Role" />
+        </set>
+    </class>
+</hibernate-mapping>

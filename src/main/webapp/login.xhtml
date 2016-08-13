@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:h="http://xmlns.jcp.org/jsf/html"
+	  xmlns:p="http://primefaces.org/ui"	  
+	  xmlns:f="http://java.sun.com/jsf/core"
+	  xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Login Page</title>
+</h:head>
+<h:body>
+		 
+		 <form method="post" action="j_spring_security_check">		 
+		 <br/><br/><br/>
+		 	<div align="center">
+		 <p:panel header="Login Screen" style="vertical-align:middle;">
+		 	<br/><p:panelGrid columns="2" styleClass="panelGridCenter">
+        		<p:outputLabel value="Username"/><input type="text" name="j_username"/>
+        		<p:outputLabel value="Password"/><input type="password" name="j_password"/>        		
+        	</p:panelGrid><br/>
+        	<div align="center"><input type="submit" value="Login" style="height: 35px"/></div>
+    	</p:panel>
+ 		    </div>
+ 		     <c:if test="${param.status=='error'}">
+		        <label style="color: red">Wrong Username or Password !</label>
+		    </c:if>
+		    <c:if test="${param.status=='logout'}">
+		        <label style="color: green">Logged Out Successfully!</label>
+		    </c:if>
+		    <!-- <a style="color: #FF0000" href="#{request.contextPath}/welcome.xhtml">INDEX PAGE TEST</a>
+		 <a style="color: #FF0000" href="#{request.contextPath}/admin.xhtml">ADMIN PAGE TEST</a> --><br/>
+		 <div align="center"><a style="color: #FF0000" href="#{request.contextPath}/register.xhtml">Sign Up</a></div>
+ 		   </form> 
+    	
+</h:body>
+</html>
