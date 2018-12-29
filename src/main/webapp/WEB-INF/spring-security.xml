@@ -30,7 +30,7 @@ http://www.springframework.org/schema/security/spring-security.xsd">
         <beans:property name="driverClassName" value="com.mysql.jdbc.Driver" />
         <beans:property name="url" value="jdbc:mysql://localhost:3306/LoginSecurity" />
         <beans:property name="username" value="root" />
-        <beans:property name="password" value="e1r2e3n4" />
+        <beans:property name="password" value="password" />
     </beans:bean>
     
  
